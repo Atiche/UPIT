@@ -14,7 +14,8 @@ function removeClass(element) {
 addClass(images_news[i]);
 function SwitchImage(direction) {
     removeClass(images_news[i]);
-
+    clearInterval(id_interval);
+    
     if (direction === "right") {
         i = (i + 1) % images_news.length;
     } else {
@@ -22,12 +23,13 @@ function SwitchImage(direction) {
     }
 
     addClass(images_news[i]);
+    id_interval = setInterval(() => SwitchImage("right"), 5000);
 }
 
 arrow_left.addEventListener("click", () => SwitchImage("left"));
 arrow_right.addEventListener("click", () => SwitchImage("right"));
 
-setInterval(() => SwitchImage("right"), 5000);
+let id_interval = setInterval(() => SwitchImage("right"), 5000);
 
 
 //Бургерное и боковое меню

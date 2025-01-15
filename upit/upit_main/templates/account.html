@@ -12,11 +12,13 @@
 		</head>
 		<body>
 			
-			<main role="main">
+			<main role="main" style = "min-height: 375px; text-align: center; padding-top: 250px">
 				{% autoescape off %}
-                    <p>Вы успешно зарегестрированы как {{username}}</p>
-                    <p>Ваш пароль {{password}}</p>
+                    <p style = "font-size: 48px">Вы успешно зарегестрированы как <b>{{username}}</b></p>
+                    <p style = "font-size: 48px">Ваш пароль <b>{{password}}</b></p>
+					<a href = "/"><button style = "background-color: #0b00cf; color:#ffffff; border: none; border-radius: 8px; font-family: 'Roboto Condensed'; font-size: 28px; font-weight: bold; width: 340px; height: 64px; cursor: pointer">Выйти</button></a>
                 {% endautoescape %}
+			</main>
 			<footer>
 				<h1>Контакты</h1>
 				<address>
