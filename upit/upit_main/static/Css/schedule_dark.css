@@ -1,0 +1,439 @@
+html{
+    background-image: url("../Images/Фон\ большой\ тёмная.png");
+    font-family: "Roboto Condensed";
+}
+
+/*Шапка*/
+.hat{
+    display:grid; 
+    grid-template-rows:1fr; 
+    grid-template-columns:repeat(2,1fr);
+}
+.hat .burger_menu{
+    padding-bottom: 3em;
+    padding-right: 10em;
+    animation: elements_appear 2.1s;
+}
+.hat .right_hat{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(4,0.3fr);
+    place-items:center;
+    padding-left: 30em;
+    cursor:pointer;
+}
+.hat .right_hat .switch_theme{
+    animation: elements_appear 2s;
+}
+.hat .right_hat .EN{
+    animation: elements_appear 1.3s;
+}
+.hat .right_hat .RU{
+    animation: elements_appear 1.5s;
+}
+.hat .right_hat .profile{
+    animation: elements_appear 2s;
+}
+@keyframes elements_appear {
+    from{
+        position: relative;
+        top: -300px;
+    }
+    to{
+        position: relative;
+        top:0px;
+    }
+}
+.hat .left_hat{
+    width: 40%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 2em;
+    cursor:pointer;
+}
+.hat .left_hat .burger_menu{
+    padding-top: 2em;
+}
+
+
+/*Навигационное меню*/
+nav{
+    display: grid; 
+    grid-template-columns: 250px 250px 250px; 
+    grid-template-rows: 1fr;
+    grid-gap: 0em;
+    padding-left: 30%;
+    width: 70%;
+    background-color: #333333;
+    margin-left: 0px;
+    margin-bottom: 0.7em;
+    height: 70px;
+	font-family:"Roboto Condensed", bold;
+	font-size: 40px;
+    place-items: center;
+    position: absolute;
+    left: 0;
+}
+nav a{
+    display: inline-flex; 
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bolder;
+}
+nav a:hover{
+    background-color: #FFFFFF;
+    animation: nav_text_hover 0.5s forwards;
+}
+@keyframes nav_text_hover {
+    from{
+        color: #333333;
+        background-color: #EEEEEE;
+        border-bottom: transparent;
+    }
+    to{
+        color: #0b00cf;
+        background-color: #FFFFFF;
+        border-bottom: 2px solid #0b00cf;
+    }
+}
+
+
+
+/*Содержание*/
+main{
+    margin-top: 15em;
+    margin-left: 5em;
+    margin-bottom: 11em;
+    color: #FFFFFF;
+}
+main select{
+    background-color: #f4f4f4;
+    width: 10em;
+    height: 1.1em;
+    font-family: "Roboto Condensed";
+    font-weight: bold;
+    font-size: 3em;
+}
+main select option{
+    font-family: "Roboto Condensed";
+    font-weight: bold;
+    font-size: 1em;
+}
+
+main .schedule_block{
+    width: 600px;
+    min-height: 700px;
+    background-color: #333333;
+    border: 3px solid #0b00cf;
+    border-radius: 16px;
+    margin: 80px auto 0px auto;
+    font-size: 40px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+.schedule_block .schedule_hat_wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 100px 100px;
+}
+.schedule_block .schedule_hat_wrapper h2{
+    grid-column-start: 2;
+}
+.schedule_block .schedule_hat_wrapper p{
+    grid-column-start: 2;
+    grid-row-start: 2;
+    text-align: center;
+    color: #FFFFFF;
+    opacity: 0.5;
+}
+.schedule_block .schedule_hat_wrapper img:nth-of-type(1){
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    margin: auto;
+}
+.schedule_block .schedule_hat_wrapper img:nth-of-type(2){
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    margin: auto;
+}
+.schedule_block .schedule_hat_wrapper img{
+    cursor: pointer;
+}
+
+.schedule_block .day_of_lessons_wrapper{
+    display: grid;
+    grid-template-rows: 60px 40px;
+    grid-template-columns: 100px 1fr;
+    margin-bottom: 60px;
+}
+.schedule_block .day_of_lessons_wrapper p:nth-child(1){
+    grid-row-start: 1;
+    grid-row-end: 3;
+    margin: auto;
+    font-size: 64px;
+    border-right: 5px solid #FFFFFF;
+    padding-right: 10px;
+}
+.schedule_block .day_of_lessons_wrapper p:nth-child(2){
+    font-size: 40px;
+    margin: auto 0px auto 0px;
+}
+.schedule_block .day_of_lessons_wrapper p:nth-child(3){
+    font-size: 32px;
+    color: #FFFFFF;
+    opacity: 0.5;
+    margin: auto 0px auto 0px;
+}
+
+
+
+/*Вход в личный кабинет*/
+.profile_enter{
+    text-align: center;
+}
+.profile_enter > form{
+    background-color: #333333;
+    border: solid #0b00cf 2px;
+    border-radius: 16px;
+    position: fixed;
+    justify-content: center;
+    align-content: center;
+    display: grid; 
+    grid-template-columns: 70%;
+    grid-row-gap: 2em;
+    grid-template-rows: 20% repeat(3,10%); 
+    width: 30em;
+    height: 40em;
+}
+.profile_enter form h2{
+    font-size: 36px;
+    color: #FFFFFF;
+}
+.profile_enter.hidden form{  
+    top:-100%;
+    left: 37%;
+    z-index: 5;
+    transition: top ease-in-out 1s;
+}
+.profile_enter.showing form{
+    z-index: 5;
+    top: 18%;
+    left:37%;
+    transition: top ease-in-out 1s;
+}
+.profile_enter.hidden .exit_profile_enter{
+    position: fixed;
+    left: 60%;
+    top:-100%;
+    z-index: 5;
+    transition: top ease-in-out 1s;
+}
+.profile_enter.showing form .exit_profile_enter{
+    position: fixed;
+    top:20%;
+    left: 60%;
+    transition: top ease-in-out 1s;
+    cursor: pointer;
+}
+.profile_enter form input{
+    font-family: "Roboto Condensed";
+    font-weight: bold;
+    font-size: 28px;
+    border-radius: 8px;
+    border: transparent;
+    background-color: #EEEEEE;
+    padding-left: 1em;
+}
+.profile_enter form input:focus{
+    background-color: #FFFFFF;
+}
+.profile_enter form input:hover{
+    background-color: #FFFFFF;
+    border: solid #0b00cf 3px;
+}
+.profile_enter .submit_profile{
+    background-color: #0b00cf;
+    color: #FFFFFF;
+    border: none;
+    padding: 0px;
+}
+.profile_enter form .submit_profile:hover{
+    background-color: #0b00cf;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+}
+.profile_enter .shadow_profile{
+    z-index: 4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000045;
+    backdrop-filter: blur(2.5px);
+}
+
+
+/*Боковое меню*/
+.side_menu .aside{
+    position: fixed;
+    background-color: #0b00cf;
+    height: 100%;
+    width: 30%;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    animation: aside_appear 1s;
+    text-align: center;
+}
+.aside.showing{
+    width: 30%;
+    transition: width ease-in-out 1s;
+}
+.aside.hiding{
+    width: 0%;
+    transition: width ease-in-out 1s;
+}
+.aside a.showing{
+    opacity: 1;
+    transition: opacity linear 0.3s;
+}
+.aside a.hiding{
+    opacity: 0;
+    transition: opacity linear 0.3s;
+}
+.side_menu .shadow{
+    z-index: 4;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: #00000025;
+    backdrop-filter: blur(2.5px);
+}
+.aside a{
+    color: #FFFFFF;
+    display:inline-block;
+    display: inline-flex; 
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    font-family: "Roboto Condensed";
+    font-weight: bold;
+    font-size: 64px;
+    text-decoration: none;
+    animation: aside_text_appear 1.5s;
+}
+.aside a:hover{
+    background-color: #300A6E;
+}
+@keyframes aside_appear {
+    from{width: 0;}
+    to{width: 30%;}
+}
+@keyframes aside_text_appear{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+
+/*Окно pop-up*/
+.main_pop_up{
+    color: #FFFFFF;
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    background-color: #333333;
+    width: 17%;
+    height: 35%;
+    border: 4px solid #0b00cf;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 40% 60%;
+    padding: 1em 1em 1em 2em;
+    font-family: "Roboto Condensed";
+    font-weight: bold;
+    font-size: 1.25em;
+    margin: 0px;
+    border-radius: 1em;
+    animation: pop_up_appear 1s;
+}
+.main_pop_up form{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end:2;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40% 30%;
+    grid-row-gap: 1em;
+}
+.main_pop_up form input{
+    border-radius: 1em;
+    background-color: #EEEEEE;
+    border: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: top;
+    padding-left: 1em;
+    font-weight: bold;
+}
+.main_pop_up form input:hover{
+    border: 2px solid #0b00cf;
+    background-color: #FFFFFF;
+}
+.main_pop_up form input[type="submit"]{
+    background-color: #0b00cf;
+    color: #FFFFFF;
+    cursor: pointer;
+    border-radius: 0.5em;
+}
+.main_pop_up img:nth-child(4){
+    position: fixed;
+    bottom: 19em;
+    right: 21em;
+    cursor: pointer;
+    animation: pop_up_appear 1s;
+}
+@keyframes pop_up_appear{
+    from{
+        bottom: -400px;
+    }
+}
+
+
+
+
+/*Футер*/
+footer{
+    box-sizing: border-box;
+    background-color: #333333;
+    width: 100%;
+    position: absolute;
+    left:0;
+    padding-left: 1em;
+    color: #FFFFFF;
+}
+footer > h1{
+    font-size: 36px;
+}
+footer > address{
+    font-size: 32px;
+}
+footer a{
+    color: #EEEEEE;
+}

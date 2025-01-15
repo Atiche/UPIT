@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html language = "en">
+		<head>
+			<title>Schedule - University of Advanced Information Technologies</title>
+			<meta charset="utf-8">
+			<link rel="stylesheet" href="{% static 'Css/schedule.css' %}" />
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+			<link rel="icon" href="{% static 'Images/Лого ВУЗа неполное.png' %}" type="image/icon-type">
+		</head>
+		<body>
+			<section class="hat">
+				<section class="left_hat">
+					<div class="burger_menu"><img src="{% static 'Images/Бургерное меню.png' %}"></div>
+					<div class="logo"><a href="_EN"><img src="{% static 'Images/Лого ВУЗа полное _EN.png' %}"></a></div>
+				</section>
+				<section class="right_hat">
+					<div class="switch_theme"><img src="{% static 'Images/Луна.png' %}"></div>
+					<div class="EN"><a href="schedule_EN"><img src="{% static 'Images/En_active.png' %}"></a></div>
+					<div class="RU"><a href="schedule"><img src="{% static 'Images/Ru.png' %}"></a></div>
+					<div class="profile"><img src="{% static 'Images/Личный кабинет.png' %}"></div>
+				</section>
+			</section>
+			<nav>
+				<a href="_EN">Main</a>
+				<a href="about_us_EN">About</a>
+				<a href="schedule_EN">Schedule</a>
+			</nav>
+			<main role="main">
+				<form class="choose" method = "post" action = "schedule_EN" onsubmit = "return false">
+                    <h1>Choose group</h1>
+					{% csrf_token %}
+                    <select name = "group_name" class = "group_select">
+                        <option value="none"></option>
+                        <option value="БО11ПИН">BO11PIN</option>
+						<option value="БО21ИСТ">BO211IST</option>
+						<option value="БО11ИСТ">BO11IST</option>
+						<option value="БО11ПМИ">BO11PMI</option>
+                    </select>
+					<h1>Choose week</h1>
+					<select name = "week_number" class = "week_select" disabled = "true">
+                        <option value="none"></option>
+                        {% autoescape off %}
+							{% for num in nums_for_select %}
+							<option value="{{num}}">{{num}}</option>
+							{% endfor %}
+						{% endautoescape %} %}
+                    </select>
+                </form>
+			</main>
+			<section class="profile_enter">
+				<form action = "index" method = "post">
+					{% csrf_token %}
+					<img src="{% static 'Images/Крестик.png' %}" class="exit_profile_enter">
+					<h2>Log in to your personal account</h2>
+					<input name="name_user" placeholder="Имя пользователя" type="text" required="true">
+					<input name="pass_user" placeholder="Пароль" type="password" required="true">
+					<input type="submit" value="Войти" class="submit_profile">	
+				</form>
+			</section>
+			<section class="side_menu">
+			</section>
+			<footer>
+				<h1>Contacts</h1>
+				<address>
+					<p>E-mail:<a href="mailto:upit_edu@gmail.com">upit_edu@gmail.com</a></p>
+					<p>Phone number:<a href="tel:+7999999999">8(999)99-99-99</a></p>
+				</address>
+			</footer>
+			<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+			<script>
+				let tech_support_img = "{% static 'Images/Техническая-поддержка.png' %}";
+				let exit_img = "{% static 'Images/Крестик в кружке.png' %}";
+
+				let RU_active_img = "{% static 'Images/Ru_active.png' %}";
+
+				let moon_img = "{% static 'Images/Луна.png' %}";
+				let sun_img = "{% static 'Images/Солнце.png' %}";
+
+				let logo_dark = "{% static 'Images/Лого ВУЗа полное тёмная.png' %}";
+				let logo_dark_en = "{% static 'Images/Лого ВУЗа полное тёмная en.png' %}";
+				let logo = "{% static 'Images/Лого ВУЗа полное, маленькое.png' %}";
+				let logo_en = "{% static 'Images/Лого ВУЗа полное _EN.png' %}";
+
+				/*Переключение темы, переменные*/
+				var pageName = window.location.href.split("/").slice(-1)[0];
+				if (pageName.indexOf("EN") > 0){
+					pageName = pageName.slice(0, pageName.indexOf("EN")-1);
+				}
+				if (pageName == ""){
+					pageName = "index";
+				}
+				let css_link_dark = "{% static 'Css/' %}" + pageName + "_dark.css";
+				let css_link_default = "{% static 'Css/' %}" + pageName + ".css";
+
+				let schedule_dict = {"week_number": "{{week_number}}", "group_name": "{{group_name_db}}", "monday": "{{monday}}", "tuesday": "{{tuesday}}", "wednesday": "{{wednesday}}", "thursday": "{{thursday}}", "friday": "{{friday}}", "saturday" : "{{saturday}}"};
+
+				let arrow_left_img = "{% static 'Images/Стрелка влево.png' %}";
+				let arrow_right_img = "{% static 'Images/Стрелка вправо.png' %}";
+			</script>
+			<script src="{% static 'JS/schedule.js' %}"></script>
+		</body>
+</html>

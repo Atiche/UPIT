@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html language = "en">
+		<head>
+			<title>Main - University of Advanced Information Technologies</title>
+			<meta charset="utf-8">
+			<link rel="stylesheet" href="{% static 'Css/index.css' %}"/>
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+			<link rel="icon" href="{% static 'Images/Лого ВУЗа полное _EN.png' %}" type="image/icon-type">
+		</head>
+		<body>
+			<section class="hat">
+				<section class="left_hat">
+					<div class="burger_menu"><img src="{% static 'Images/Бургерное меню.png' %}"></div>
+					<div class="logo"><a href="_EN"><img src="{% static 'Images/Лого ВУЗа полное _EN.png' %}"></a></div>
+				</section>
+				<section class="right_hat">
+					<div class="switch_theme"><img src="{% static 'Images/Луна.png' %}"></div>
+					<div class="EN"><a href="_EN"><img src="{% static 'Images/En_active.png' %}"></a></div>
+					<div class="RU"><a href="/"><img src="{% static 'Images/Ru.png' %}"></a></div>
+					<div class="profile"><img src="{% static 'Images/Личный кабинет.png' %}"></div>
+				</section>
+			</section>
+			<nav>
+				<a href="_EN">Main</a>
+				<a href="about_us_EN">About</a>
+				<a href="schedule_EN">Schedule</a>
+			</nav>
+			<main role="main">
+				<div class="news">
+					<img src="{% static 'Images/УПИТ мы открылись.png' %}" class="news_img_1">
+					<img src="{% static 'Images/Фото новостей 2.png' %}" class="news_img_2">
+					<img src="{% static 'Images/Фото новостей 3.jpg' %}" class="news_img_3">
+				</div>
+				<button class="arrow_left"><img src="{% static 'Images/Стрелка влево.png' %}"></button>
+					<button class="arrow_right"><img src="{% static 'Images/Стрелка вправо.png' %}"></button>
+				<div class="wrapper">
+					<div class="typing_1"></div>
+					<div class="typing_2"></div>
+				</div>
+				<section class="info">
+					<div class="block_1">
+						<img src="{% static 'Images/Профессор прозрачный.png' %}">
+						<h2>Number of teachers</h2>
+						<p><b>160</b></p>
+					</div>
+					<div class="block_2">
+						<img src="{% static 'Images/Студент.png' %}">
+						<div>
+							<h2>Number of students</h2>
+							<p><b>6743</b></p>
+						</div>
+					</div>
+					<div class="block_3">
+						<img src="{% static 'Images/Иностранный студент.png' %}">
+						<div>
+							<h2>Number of international students</h2>
+							<p><b>421</b></p>
+						</div>
+					</div>
+				</section>
+				<div class="line"></div>
+				<section class="announcement">
+					<h2>Announcement</h2>
+					<div class="an_1">
+						<h2>November</h2>
+						<h1>18</h1>
+						<p><b>Participation in the All-Russian Olympiad</b></p>
+					</div>
+					<div class="an_2">
+						<h2>December</h2>
+						<h1>4</h1>
+						<p><b>Interuniversity Scientific Conference</b></p>
+					</div>
+					<div class="an_3">
+						<h2>February</h2>
+						<h1>12</h1>
+						<p><b>UAIT will become a participant of the international forum</b></p>
+					</div>
+					<div class="an_4">
+						<h2>March</h2>
+						<h1>14</h1>
+						<p><b>Opening of the intercollegiate <br>campus</br></b></p>
+					</div>
+					<div class="an_5">
+						<h2>March</h2>
+						<h1>23</h1>
+						<p><b>A joint project with the Government of the Russian Federation</b></p>
+					</div>
+					<div class="an_6">
+						<h2>April</h2>
+						<h1>5</h1>
+						<p><b>Creating a new one <br>professional development program</br></b></p>
+					</div>
+				</section>
+			</main>
+			<section class="profile_enter">
+				<form action = "index" method = "post">
+					{% csrf_token %}
+					<img src="{% static 'Images/Крестик.png' %}" class="exit_profile_enter">
+					<h2>Log in to your personal account</h2>
+					<input name="name_user" placeholder="Имя пользователя" type="text" required="true">
+					<input name="pass_user" placeholder="Пароль" type="password" required="true">
+					<input type="submit" value="Войти" class="submit_profile">	
+				</form>
+			</section>
+			<section class="side_menu">
+			</section>
+			<footer>
+				<h1>Contacts</h1>
+				<address>
+					<p>E-mail:<a href="mailto:upit_edu@gmail.com">upit_edu@gmail.com</a></p>
+					<p>Phone number:<a href="tel:+7999999999">8(999)99-99-99</a></p>
+				</address>
+			</footer>
+			<script>
+				let tech_support_img = "{% static 'Images/Техническая-поддержка.png' %}";
+				let exit_img = "{% static 'Images/Крестик в кружке.png' %}";
+
+				let RU_active_img = "{% static 'Images/Ru_active.png' %}";
+
+				let moon_img = "{% static 'Images/Луна.png' %}";
+				let sun_img = "{% static 'Images/Солнце.png' %}";
+
+				let logo_dark = "{% static 'Images/Лого ВУЗа полное тёмная.png' %}";
+				let logo_dark_en = "{% static 'Images/Лого ВУЗа полное тёмная en.png' %}";
+				let logo = "{% static 'Images/Лого ВУЗа полное, маленькое.png' %}";
+				let logo_en = "{% static 'Images/Лого ВУЗа полное _EN.png' %}";
+
+				/*Переключение темы, переменные*/
+				var pageName = window.location.href.split("/").slice(-1)[0];
+				if (pageName.indexOf("EN") > 0){
+					pageName = pageName.slice(0, pageName.indexOf("EN")-1);
+				}
+				if (pageName == ""){
+					pageName = "index";
+				}
+				let css_link_dark = "{% static 'Css/' %}" + pageName + "_dark.css";
+				let css_link_default = "{% static 'Css/' %}" + pageName + ".css";
+			</script>
+			<script src="{% static 'JS/index.js' %}"></script>
+		</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html language = "ru">
+		<head>
+			<title>О нас - Университет передовых информационных технологий</title>
+			<meta charset="utf-8">
+			<link rel="stylesheet" href="{% static 'Css/about_us.css' %}"/>
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+			<link rel="icon" href="{% static 'Images/Лого ВУЗа неполное.png' %}" type="image/icon-type">
+		</head>
+		<body>
+			<section class="hat">
+				<section class="left_hat">
+					<div class="burger_menu"><img src="{% static 'Images/Бургерное меню.png' %}"></div>
+					<div class="logo"><a href="/"><img src="{% static 'Images/Лого ВУЗа полное, маленькое.png' %}"></a></div>
+				</section>
+				<section class="right_hat">
+					<div class="switch_theme"><img src="{% static 'Images/Луна.png' %}"></div>
+					<div class="EN"><a href="about_us_EN"><img src="{% static 'Images/En.png' %}"></a></div>
+					<div class="RU"><a href="about_us"><img src="{% static 'Images/Ru_active.png' %}"></a></div>
+					<div class="profile"><img src="{% static 'Images/Личный кабинет.png' %}"></div>
+				</section>
+			</section>
+			<nav>
+				<a href="/">Главная</a>
+				<a href="about_us">О нас</a>
+				<a href="schedule">Расписание</a>
+			</nav>
+			<main role="main">
+				<section>
+					<div class="about">
+						<h2><b>О нас</b></h2>
+						<p>							
+							<b>Университет стремится формировать новое поколение IT-специалистов, готовых работать в условиях стремительного технологического прогресса и глобальной цифровизации. УПИТ нацелен на соединение теоретической подготовки с практическими навыками, востребованными в реальной работе.</b>
+						</p>
+						<h3>Ключевые направления обучения и исследований:</h3>
+						<ol>
+							<li><b>Искусственный интеллект и машинное обучение – разработка интеллектуальных систем, способных анализировать данные, прогнозировать события и автоматизировать процессы.</b></li>
+							<li><b>Кибербезопасность – обеспечение безопасности цифровых систем и данных, включая защиту от хакерских атак и разработку средств шифрования.</b></li>
+							<li><b>Разработка программного обеспечения – создание приложений, веб-сервисов и других IT-продуктов для бизнеса, науки и социальной сферы.</b></li>
+							<li><b>Технологии Интернета вещей (IoT) – разработка решений для объединения физических устройств в единую интеллектуальную сеть.</b></li>
+							<li><b>Мультимедийные технологии и дизайн – сочетание технологий и креативности для создания цифрового контента.</b></li>
+						</ol>
+					</div>
+					<div class="why">
+						<h2><b>Почему мы?</b></h2>
+						<img src="{% static 'Images/Элемент почему мы.png' %}">
+						<p><b>Уникальная учебная программа, разработанная в сотрудничестве с ведущими IT-компаниями.</b></p>
+						<p><b>Доступ к современным лабораториям и исследовательским центрам.</b></p>
+						<p><b>Возможность участия в международных хакатонах, конкурсах и стажировках.</b></p>
+						<p><b>Сильный преподавательский состав, включающий как учёных, так и практиков из IT-индустрии.</b></p>
+						<p><b>Развитие стартапов и реализация студенческих проектов в собственном инкубаторе университета.</b></p>
+					</div>
+				</section>
+			</main>
+			<section class="profile_enter">
+				<form action = "index" method = "post">
+					{% csrf_token %}
+					<img src="{% static 'Images/Крестик.png' %}" class="exit_profile_enter">
+					<h2>Вход в личный кабинет</h2>
+					<input name="name_user" placeholder="Имя пользователя" type="text" required="true">
+					<input name="pass_user" placeholder="Пароль" type="password" required="true">
+					<input type="submit" value="Войти" class="submit_profile">	
+				</form>
+			</section>
+			<section class="side_menu">
+			</section>
+			<footer>
+				<h1>Контакты</h1>
+				<address>
+					<p>E-mail:<a href="mailto:upit_edu@gmail.com">upit_edu@gmail.com</a></p>
+					<p>Номер телефона:<a href="tel:+7999999999">8(999)99-99-99</a></p>
+				</address>
+			</footer>
+			<script>
+				let tech_support_img = "{% static 'Images/Техническая-поддержка.png' %}";
+				let exit_img = "{% static 'Images/Крестик в кружке.png' %}";
+
+				let RU_active_img = "{% static 'Images/Ru_active.png' %}";
+
+				let moon_img = "{% static 'Images/Луна.png' %}";
+				let sun_img = "{% static 'Images/Солнце.png' %}";
+
+				let logo_dark = "{% static 'Images/Лого ВУЗа полное тёмная.png' %}";
+				let logo_dark_en = "{% static 'Images/Лого ВУЗа полное тёмная en.png' %}";
+				let logo = "{% static 'Images/Лого ВУЗа полное, маленькое.png' %}";
+				let logo_en = "{% static 'Images/Лого ВУЗа полное _EN.png' %}";
+
+				/*Переключение темы, переменные*/
+				var pageName = window.location.href.split("/").slice(-1)[0];
+				if (pageName.indexOf("EN") > 0){
+					pageName = pageName.slice(0, pageName.indexOf("EN")-1);
+				}
+				if (pageName == ""){
+					pageName = "index";
+				}
+				let css_link_dark = "{% static 'Css/' %}" + pageName + "_dark.css";
+				let css_link_default = "{% static 'Css/' %}" + pageName + ".css";
+			</script>
+			<script src="{% static 'JS/about_us.js' %}"></script>
+		</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html language = "ru">
+		<head>
+			<title>Главная - Университет передовых информационных технологий</title>
+			<meta charset="utf-8">
+			<link rel="stylesheet" href="{% static 'Css/index.css' %}" />
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+			<link rel="icon" href="{% static 'Images/Лого ВУЗа неполное.png' %}" type="image/icon-type">
+		</head>
+		<body>
+			
+			<main role="main">
+				{% autoescape off %}
+                    <p>Вы успешно зарегестрированы как {{username}}</p>
+                    <p>Ваш пароль {{password}}</p>
+                {% endautoescape %}
+			<footer>
+				<h1>Контакты</h1>
+				<address>
+					<p>E-mail:<a href="mailto:upit_edu@gmail.com">upit_edu@gmail.com</a></p>
+					<p>Номер телефона:<a href="tel:+7999999999">8(999)99-99-99</a></p>
+				</address>
+			</footer>
+			<script>
+				let tech_support_img = "{% static 'Images/Техническая-поддержка.png' %}";
+				let exit_img = "{% static 'Images/Крестик в кружке.png' %}";
+
+				let RU_active_img = "{% static 'Images/Ru_active.png' %}";
+
+				let moon_img = "{% static 'Images/Луна.png' %}";
+				let sun_img = "{% static 'Images/Солнце.png' %}";
+
+				let logo_dark = "{% static 'Images/Лого ВУЗа полное тёмная.png' %}";
+				let logo_dark_en = "{% static 'Images/Лого ВУЗа полное тёмная en.png' %}";
+				let logo = "{% static 'Images/Лого ВУЗа полное, маленькое.png' %}";
+				let logo_en = "{% static 'Images/Лого ВУЗа полное _EN.png' %}";
+
+				/*Переключение темы, переменные*/
+				var pageName = window.location.href.split("/").slice(-1)[0];
+				if (pageName.indexOf("EN") > 0){
+					pageName = pageName.slice(0, pageName.indexOf("EN")-1);
+				}
+				if (pageName == ""){
+					pageName = "index";
+				}
+				let css_link_dark = "{% static 'Css/' %}" + pageName + "_dark.css";
+				let css_link_default = "{% static 'Css/' %}" + pageName + ".css";
+			</script>
+		</body>
+</html>
