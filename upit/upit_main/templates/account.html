@@ -4,7 +4,7 @@
 		<head>
 			<title>Главная - Университет передовых информационных технологий</title>
 			<meta charset="utf-8">
-			<link rel="stylesheet" href="{% static 'Css/index.css' %}" />
+			<link rel="stylesheet" href="{% static 'Css/account.css' %}" />
 			<link rel="preconnect" href="https://fonts.googleapis.com">
 			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 			<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -12,12 +12,18 @@
 		</head>
 		<body>
 			
-			<main role="main" style = "min-height: 375px; text-align: center; padding-top: 250px">
-				{% autoescape off %}
-                    <p style = "font-size: 48px">Вы успешно зарегестрированы как <b>{{username}}</b></p>
-                    <p style = "font-size: 48px">Ваш пароль <b>{{password}}</b></p>
-					<a href = "/"><button style = "background-color: #0b00cf; color:#ffffff; border: none; border-radius: 8px; font-family: 'Roboto Condensed'; font-size: 28px; font-weight: bold; width: 340px; height: 64px; cursor: pointer">Выйти</button></a>
-                {% endautoescape %}
+			<main role="main">
+				<img src = "{% static "Images/Иконка пользователя.svg" %}">
+				<div class = "wrapper">
+					<h1>Профиль</h1>
+					{% autoescape off %}
+						<p>Имя пользователя</p>
+						<p>{{username}}</p>
+						<p>Пароль</p>
+						<p>{{password}}</p>
+						<a href = "/"><button style = "background-color: #0b00cf; color:#ffffff; border: none; border-radius: 8px; font-family: 'Roboto Condensed'; font-size: 28px; font-weight: bold; width: 340px; height: 64px; cursor: pointer">Выйти</button></a>
+					{% endautoescape %}
+				</div>
 			</main>
 			<footer>
 				<h1>Контакты</h1>

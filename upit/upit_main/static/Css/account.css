@@ -1,0 +1,55 @@
+html{
+    background-image: url("../Images/Фон\ большой.png");
+    font-family: "Roboto Condensed";
+}
+body{
+    margin: 0px;
+}
+
+
+/*Содержимое*/
+main{
+    min-height: 420px;  
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+main img{
+    margin: auto;
+    width: 400px;
+    height: 400px;
+    border: 2px solid #300A6E;
+    border-radius: 50%;
+    padding-bottom: 20px;
+}
+main h1{
+    font-size: 64px;
+}
+main p:nth-of-type(even){
+    font-size: 36px;
+}
+main p:nth-of-type(odd){
+    font-size: 48px;
+    border-bottom: 2px solid #0b00cf;
+    border-top: 2px solid #0b00cf;
+    width: 400px;
+    font-weight: bold;
+}
+
+/*Футер*/
+footer{
+    box-sizing: border-box;
+    background-color: #EEEEEE;
+    width: 100%;
+    position: absolute;
+    left:0;
+    padding-left: 1em;
+    color: #333333;
+    margin-top: 5em;
+}
+footer > h1{
+    font-size: 36px;
+}
+footer > address{
+    font-size: 32px;
+}
